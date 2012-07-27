@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Subcategory of {{category.name}}</h2>
+<table>
+    {% for sub in category.subcategories %}
+    <tr>
+        <td>{{sub.name}}</td><td><a href="/subcategory/delete/{{sub.id}}">Delete</a></td>
+    </tr>
+    {% endfor %}
+</table>
+<form action="/category/{{category.id}}/add" method="POST">
+    <label for="name"><input type="text" name="name"/></label>
+    <input type="submit" value="Add" />
+</form>
+{% endblock %}

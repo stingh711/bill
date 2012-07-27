@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>By Year</h2>
+<ul>
+{% for year in years %}
+<li><a href="/report/{{year[0]}}">{{year[0]}}</a></li>
+{% endfor %}    
+</ul>
+<h2>By Month</h2>
+<ul>
+{% for (year, month) in months %}
+<li><a href="/report/{{year}}/{{month}}">{{year}}-{{month}}</a></li>
+{% endfor %}    
+</ul>
+{% endblock %}

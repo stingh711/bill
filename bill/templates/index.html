@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block content %}
+<form action="/quickadd" method="POST" class="well form-inline">
+    <input type="text" name="shortcut"/>
+    <input type="submit" value="add"/>
+</form>
+<form action="/add" method="POST" class="well">
+    {{form.date.label}}
+    {{form.date}}
+    <label class="checkbox">
+    {{form.is_expense}} Is Expense
+    </label>
+    {{form.category}}
+    {{form.amount.label}}<br/>
+    {{form.amount}}
+    {{form.description.label}}<br/>
+    {{form.description}}<br/>
+    <input type="submit" value="add"/>
+</form>
+<script type="text/javascript" charset="utf-8">
+    $().ready(function() {
+        $("#date").datepicker({dateFormat: 'yy-mm-dd'});
+    });
+</script>
+{% endblock %}

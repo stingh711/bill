@@ -1,0 +1,7 @@
+{% extends "base.html" %}
+{% block content %}
+<form action="/import" method="POST" class="well">
+    <textarea name="lines"></textarea>
+    <input type="submit" value="Import"/>
+</form>    
+{% endblock %}

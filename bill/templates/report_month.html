@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Time: {{year}}-{{month}}</h2>
+<p>Income: {{income}}</p>
+<p>Expenses: {{expense}}</p>
+<p>Remain: {{total}}</p>
+<h2>Expenses By Category</h2>
+<table>
+    {% for e in expenses_by_category %}
+    <tr>
+        <td><a href="/report/{{year}}/{{month}}/{{e[1]}}">{{e[1]}}</a></td>
+        <td>{{e[0]}}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

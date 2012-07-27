@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>Expenses of month: {{year}}-{{month}} of {{category}}</h2>
+<p>Total: {{total}}</p>
+<table class="table">
+    <tr>
+        <th>Date</th>
+        <th>Amount</th>
+        <th>Description</th>
+    </tr>
+    {% for i in items %}
+    <tr>
+        <td>{{i.date}}</td>
+        <td>{{i.amount}}</td>
+        <td>{{i.description}}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}
