@@ -5,12 +5,24 @@
 <p>Expenses: {{expense}}</p>
 <p>Remain: {{total}}</p>
 <h2>Expenses By Category</h2>
-<table>
-    {% for e in expenses_by_category %}
-    <tr>
-        <td><a href="/report/{{year}}/{{month}}/{{e[1]}}">{{e[1]}}</a></td>
-        <td>{{e[0]}}</td>
-    </tr>
-    {% endfor %}
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Date</th>
+            <th>Category</th>
+            <th>Amount</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for item in items %}
+        <tr>
+            <td>{{item.date}}</td>
+            <td>{{item.category.name}}</td>
+            <td>{{item.amount}}</td>
+            <td>{{item.description}}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
 </table>
 {% endblock %}

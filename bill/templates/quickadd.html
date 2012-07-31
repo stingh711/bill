@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block content %}
+<form action="/quickadd" method="POST" class="well form-inline">
+    <input type="text" name="date" id="date"/>
+    <input type="text" name="content" id="category"/>
+    <input type="submit" value="add"/>
+</form>
+<script type="text/javascript" charset="utf-8">
+    $().ready(function() {
+        $("#date").datepicker({dateFormat: 'yy-mm-dd'});
+        var categories;
+        $.getJSON('/_subcategory', function(data) {
+            categories = data;
+        });
+        $("#category").autocomplete({
+            autoFocus: true,
+            delay: 100,
+            source: '/_subcategory'
+        });
+    });
+</script>
+{% endblock %}

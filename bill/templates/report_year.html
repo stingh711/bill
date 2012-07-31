@@ -8,7 +8,7 @@
 <table>
     {% for e in expenses_by_category %}
     <tr>
-        <td>{{e[1]}}</td>
+        <td><a href="/report_by_category/{{year}}/{{e[1]}}">{{e[1]}}</a></td>
         <td>{{e[0]}}</td>
     </tr>
     {% endfor %}
