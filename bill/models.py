@@ -2,7 +2,7 @@
 
 from flask.ext.sqlalchemy import SQLAlchemy
 from bill import app
-from datetime import date
+from datetime import date as d
 
 db = SQLAlchemy(app)
 
@@ -41,15 +41,15 @@ class Item(db.Model):
     amount = db.Column(db.Integer)
     description = db.Column(db.String)
     
-    category_id = db.Column(db.Integer, db.ForeignKey('category.id'))
-    category = db.relationship('Category')
+    category_id = db.Column(db.Integer, db.ForeignKey('sub_category.id'))
+    category = db.relationship('SubCategory')
 
     def __init__(self, amount, category, description, is_expense=True, date=None):
         self.amount = amount
         self.category = category
         self.is_expense = is_expense
         if date is None:
-            date = date.today()
+            date = d.today()
         self.date = date
         self.description = description
 
