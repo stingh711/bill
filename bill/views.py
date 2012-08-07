@@ -53,7 +53,7 @@ def parse_content(content):
     if ':' in content:
         tokens = content.split(':')
         description = tokens[-1].strip()
-        (subcategory_str, amount) = parse_subcategory_and_amount(tokens[:-1])
+        (subcategory_str, amount) = parse_subcategory_and_amount(tokens[0].split())
     else:
         tokens = content.split()
         (subcategory_str, amount) = parse_subcategory_and_amount(tokens)

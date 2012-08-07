@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-from flaskext.wtf import Form, TextField, BooleanField, DateField
+from flask.ext.wtf import Form, TextField, BooleanField, DateField
 from wtforms.ext.sqlalchemy.fields import QuerySelectField
 from bill.models import Category
 
